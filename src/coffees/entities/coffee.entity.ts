@@ -1,5 +1,4 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose from 'mongoose';
 import { Document } from 'mongoose';
 @Schema()
 export class Coffee extends Document {
@@ -9,11 +8,11 @@ export class Coffee extends Document {
   @Prop()
   brand: string;
 
+  @Prop({ default: 0 })
+  recommendations: number;
+
   @Prop([String])
   flavors: string[];
-
-  @Prop(mongoose.SchemaTypes.Mixed)
-  payload: Record<string, any>;
 }
 
-export const CoffeesSchema = SchemaFactory.createForClass(Coffee);
+export const CoffeeSchema = SchemaFactory.createForClass(Coffee);

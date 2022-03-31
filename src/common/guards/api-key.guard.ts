@@ -6,7 +6,10 @@ import { Observable } from 'rxjs';
 import { IS_PUBLIC_KEY } from '../decorators/public.decorators';
 @Injectable()
 export class ApiKeyGuard implements CanActivate {
-  constructor(private readonly reflector: Reflector, private readonly configService: ConfigService,) { }
+  constructor(
+    private readonly reflector: Reflector,
+    private readonly configService: ConfigService,
+  ) { }
   canActivate(
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
